@@ -9,7 +9,7 @@ namespace LightestNight.System.Data.Postgres
         public static IServiceCollection AddPostgresData(this IServiceCollection services,
             Action<PostgresOptions>? optionsAccessor = null)
         {
-            services.ConfigureOptions(optionsAccessor);
+            services.Configure(optionsAccessor);
             services.TryAddSingleton<IPostgresConnection, PostgresConnection>();
 
             return services;
