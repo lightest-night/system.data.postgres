@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
 using AutoFixture;
-using Microsoft.Extensions.Options;
 using Shouldly;
 using Xunit;
 
@@ -32,7 +30,7 @@ namespace LightestNight.System.Data.Postgres.Tests
                 })
                 .Create();
 
-            _sut = new PostgresConnection(Options.Create(options));
+            _sut = new PostgresConnection(options);
         }
         
         [Fact, Trait("Category", "Unit")]

@@ -1,5 +1,4 @@
-﻿using LightestNight.System.Utilities.Extensions;
-using Microsoft.Extensions.Options;
+﻿using System;
 using Npgsql;
 
 namespace LightestNight.System.Data.Postgres
@@ -8,9 +7,9 @@ namespace LightestNight.System.Data.Postgres
     {
         private readonly PostgresOptions _options;
 
-        public PostgresConnection(IOptions<PostgresOptions> options)
+        public PostgresConnection(PostgresOptions options)
         {
-            _options = options.ThrowIfNull(nameof(options)).Value;
+            _options = options ?? throw new ArgumentNullException(nameof(options));
         }
 
         /// <inheritdoc cref="Build" />
